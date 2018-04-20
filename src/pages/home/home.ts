@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { MenuController } from 'ionic-angular/components/app/menu-controller';
+import { CredenciaisDTO } from '../../models/credenciais.dto';
 
 @Component({
   selector: 'page-home',
@@ -9,11 +10,17 @@ import { MenuController } from 'ionic-angular/components/app/menu-controller';
 @IonicPage()
 export class HomePage {
 
-  constructor(public navCtrl: NavController,  public menu: MenuController) {
+  creds: CredenciaisDTO = {
+    email: "",
+    senha: ""
+  }
+
+  constructor(public navCtrl: NavController, public menu: MenuController) {
 
   }
 
-  login(){
+  login() {
+    console.log(this.creds);
     this.navCtrl.setRoot('CategoriasPage');
   }
 
@@ -21,7 +28,7 @@ export class HomePage {
   ionViewWillEnter() {
     this.menu.swipeEnable(false);
   }
-  
+
   // Quando pagina home sair, habilita menu
   ionViewDidLeave() {
     this.menu.swipeEnable(true);
