@@ -3,6 +3,7 @@ import { NavController, IonicPage } from 'ionic-angular';
 import { MenuController } from 'ionic-angular/components/app/menu-controller';
 import { CredenciaisDTO } from '../../models/credenciais.dto';
 import { AuthService } from '../../services/auth.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'page-home',
@@ -26,7 +27,7 @@ export class HomePage {
     this.authService.autenticate(this.creds)
       .subscribe(
         response => {
-        console.log(response.headers.get("Authorization"));
+        this.authService.successfulLogin(response.headers.get("Authorization"));
       },
       error => {});
     this.navCtrl.setRoot('CategoriasPage');
