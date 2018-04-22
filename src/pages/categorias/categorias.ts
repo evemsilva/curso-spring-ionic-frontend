@@ -21,7 +21,9 @@ export class CategoriasPage {
   items: CategoriaDTO[];
   bucketUrl : string = API_CONFIG.bucketBaseUrl; 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public categoriaService: CategoriaService) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public categoriaService: CategoriaService) {
   }
 
   ionViewDidLoad() {
