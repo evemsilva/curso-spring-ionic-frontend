@@ -26,8 +26,18 @@ export class HomePage {
     this.authService.autenticate(this.creds)
       .subscribe(
         response => {
-        this.authService.successfulLogin(response.headers.get("Authorization"));
-        this.navCtrl.setRoot('CategoriasPage');
+          this.authService.successfulLogin(response.headers.get("Authorization"));
+          this.navCtrl.setRoot('CategoriasPage');
+      },
+      error => {});
+  }
+
+  ionViewDidEnter(){
+    this.authService.refreshToken()
+      .subscribe(
+        response => {
+          this.authService.successfulLogin(response.headers.get("Authorization"));
+          this.navCtrl.setRoot('CategoriasPage');
       },
       error => {});
   }
