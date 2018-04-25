@@ -27,9 +27,9 @@ export class HomePage {
       .subscribe(
         response => {
         this.authService.successfulLogin(response.headers.get("Authorization"));
+        this.navCtrl.setRoot('CategoriasPage');
       },
       error => {});
-    this.navCtrl.setRoot('CategoriasPage');
   }
 
   // Quando pagina home entrar, desabilita menu
