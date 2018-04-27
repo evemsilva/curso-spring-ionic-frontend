@@ -42,6 +42,10 @@ export class HomePage {
       error => {});
   }
 
+  signup(){
+    this.navCtrl.setRoot('SignupPage');
+  }
+
   // Quando pagina home entrar, desabilita menu
   ionViewWillEnter() {
     this.menu.swipeEnable(false);
