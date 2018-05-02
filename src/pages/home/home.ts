@@ -43,7 +43,7 @@ export class HomePage {
   }
 
   signup(){
-    this.navCtrl.setRoot('SignupPage');
+    this.navCtrl.push('SignupPage');
   }
 
   // Quando pagina home entrar, desabilita menu
