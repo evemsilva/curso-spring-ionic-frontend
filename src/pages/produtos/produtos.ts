@@ -21,8 +21,8 @@ export class ProdutosPage {
   }
 
   loadData(){
-    let categoria_id = this.navParams.get('categoria_id');
     let loader = this.presentLoading();
+    let categoria_id = this.navParams.get('categoria_id');
     this.produtoService.findByCategoria(categoria_id, this.page, 10)
       .subscribe(
         response => {
