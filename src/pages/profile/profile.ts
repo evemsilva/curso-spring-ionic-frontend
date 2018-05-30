@@ -74,15 +74,16 @@ export class ProfilePage {
     this.camera.getPicture(options).then((imageData) => {
       this.picture = 'data:image/png;base64,' + imageData;
       this.cameraOn = false;
-      }, (err) => {}
+      }, (err) => {
+        this.cameraOn = false;
+      }
     );
 
   }
 
   getGalleryPicture() {
-
     this.cameraOn = true;
-
+    
     const options: CameraOptions = {
       quality: 100,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
@@ -94,7 +95,9 @@ export class ProfilePage {
     this.camera.getPicture(options).then((imageData) => {
       this.picture = 'data:image/png;base64,' + imageData;
       this.cameraOn = false;
-      }, (err) => {}
+      }, (err) => {
+        this.cameraOn = false;
+      }
     );
 
   }
